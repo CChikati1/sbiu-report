@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+/*mport { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +7,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'sbiu-report';
+}*/
+
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  template: '<router-outlet></router-outlet>'
+})
+export class AppComponent {
+  title = 'SBIU Report';
 }

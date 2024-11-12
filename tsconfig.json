@@ -17,10 +17,12 @@
     "moduleResolution": "node",
     "importHelpers": true,
     "target": "ES2022",
+    "typeRoots": ["node_modules/@types"],
     "module": "ES2022",
+    "skipLibCheck":true,
     "useDefineForClassFields": false,
     "lib": [
-      "ES2022",
+      "es2018",
       "dom"
     ]
   },

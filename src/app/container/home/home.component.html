@@ -1,0 +1,66 @@
+<mat-toolbar color="primary">
+    <img [ngClass]="{ 'hidden': opened ? false : true }"
+        src="https://majidalfuttaim.sharepoint.com/sites/SIBUReport/Report/assets/images/MAFLogo.png" class="maf_logo" />
+    <span>
+    </span>
+    <span class="head-menu"></span>
+    <div class="row">
+        <h4 class="name text-responsive">{{DisplayName}}</h4>
+    </div>
+</mat-toolbar>
+<div style="margin: 20px 30px;">
+    <div class="row">
+        <div class="col-12" style="text-align: center;">
+            <h2>Strategic Business Intelligence</h2>
+        </div>
+        <div class="row">
+            <div class="col-12" style="text-align: center;margin: 20px 0;">
+                <h4 style="color: #8a1538;">Unlocking powerful business insights</h4>
+            </div>
+        </div>
+        <div class="card-container">
+            <div class="card-wrap">
+                <div class="con-img-wrap m-auto" (click)="navigate('/markets/gdp')">
+                    <img src="https://majidalfuttaim.sharepoint.com/sites/SIBUReport/Report/assets/images/landing-page-1.png"
+                        class="img-fluid mx-auto d-block" alt="product picture">
+                    <h2 class="heading">Macroeconomics</h2>
+                    <p class="text">A suite of macroeconomic dashboards for our key markets</p>
+                </div>
+            </div>
+            <div class="card-wrap">
+                <div class="con-img-wrap m-auto" (click)="navigate('/reports/all')">
+                    <img src="https://majidalfuttaim.sharepoint.com/sites/SIBUReport/Report/assets/images/landing-page-2.png"
+                        class="img-fluid mx-auto d-block" alt="product picture">
+                    <h2 class="heading">Report Hub</h2>
+                    <p class="text">A centralized repository for all reports</p>
+                </div>
+            </div>
+            <div class="card-wrap">
+                <div class="con-img-wrap m-auto" (click)="navigate('/competitive/retail')">
+                    <img src="https://majidalfuttaim.sharepoint.com/sites/SIBUReport/Report/assets/images/landing-page-3.png"
+                        class="img-fluid mx-auto d-block" alt="product picture">
+                    <h2 class="heading">Competitive Benchmarking</h2>
+                    <p class="text">Benchmarking MAF performance against global and regional peers</p>
+                </div>
+            </div>
+            <div class="card-wrap">
+                        <div class="con-img-wrap m-auto" (click)="navigate('/news/allnews')">
+                            <img src="https://majidalfuttaim.sharepoint.com/sites/SIBUReport/Report/assets/images/landing-page-4.png"
+                                class="img-fluid mx-auto d-block" alt="product picture">
+                            <div class="offer-tag bg-warning">COMING SOON</div>
+                            <h2 class="heading">News Aggregator</h2>
+                            <p class="text">An intuitive approach to bringing all the
+                                relevant news related to Majid Al Futtaim</p>
+                        </div>
+                    </div>
+                    <!--<div class="card-wrap">
+                        <div class="con-img-wrap m-auto">
+                            <img src="https://majidalfuttaim.sharepoint.com/sites/SIBUReport/Report/assets/images/landing-page-5.png"
+                                class="img-fluid mx-auto d-block" alt="product picture">
+                            <div class="offer-tag bg-warning">COMING SOON</div>
+                            <h2 class="heading">BIDS</h2>
+                            <p class="text">Stay Updated with out suite of dashboards for a
+                                snapshot of...</p>
+                        </div>
+                    </div-->
+        </div>

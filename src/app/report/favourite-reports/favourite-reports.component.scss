@@ -1,0 +1,87 @@
+
+.card-report-header {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50%;
+    height: 100px;
+    background-image: url('https://majidalfuttaim.sharepoint.com/sites/SIBUReport/Report/assets/images/report-thumbnail-red.png');
+    cursor: pointer;
+}
+
+.card-report-footer {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50%;
+    height: 40px;
+    background-image: url('https://majidalfuttaim.sharepoint.com/sites/SIBUReport/Report/assets/images/report-thumbnail-brown.png');
+    cursor: pointer;
+}
+
+
+
+
+.report-card-new-flag {
+    visibility: visible;
+    position: absolute;
+    left: 1.5rem;
+    bottom: 1.5rem;
+    z-index: 10;
+    padding-left: .375rem;
+    padding-right: .375rem;
+    padding-bottom: .25rem;
+    padding-top: .25rem;
+    border-radius: .5rem;
+    --tw-bg-opacity: 1;
+    background-color: rgb(138 21 56 / var(--tw-bg-opacity));
+    text-transform: uppercase;
+    font-size: .75rem;
+    line-height: 1rem;
+    --tw-text-opacity: 1;
+    color: rgb(255 255 255 / var(--tw-text-opacity));
+    //visible absolute left-6 bottom-6 z-10 px-1.5 py-1 rounded bg-palette-burgundy uppercase text-xs text-white
+}
+
+
+mat-form-field {
+    width: 100%;
+  }
+
+/* styles.css */
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+.card {
+    border: 1px solid #ccc;
+}
+
+.card-title {
+    color: #fff;
+    font-size: 1.2rem;
+    padding: 5px 10px;
+}
+
+.card-report-body {
+    height: 275px;
+    --tw-bg-opacity: 1;
+    padding: 5px 10px;
+    background-color: rgb(244 239 233 / var(--tw-bg-opacity));
+    cursor: pointer;
+}
+
+.card-report-footer {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50%;
+    background-image: url('https://majidalfuttaim.sharepoint.com/sites/SIBUReport/Report/assets/images/report-thumbnail-brown.png');
+    cursor: pointer;
+}
+
+.card-footer-text {
+    color: #fff;
+    font-size: 0.8rem;
+    text-align: end;
+    align-items: center;
+    margin: 10px 10px;
+}

@@ -1,0 +1,83 @@
+<mat-toolbar color="primary">
+  <button mat-icon-button (click)="sidenav.toggle()" class="menu-button" fxHide fxShow.lt-md>
+    <mat-icon>menu</mat-icon>
+  </button>
+  <img (click)="navigate('Competitive','Retail','/')" [ngClass]="{ 'hidden': opened ? false : true }" src="https://majidalfuttaim.sharepoint.com/sites/SIBUReport/Report/assets/images/MAFLogo.png" class="maf_logo" />
+  <span>
+  </span>
+  <span class="head-menu"></span>
+  <div class="row">
+    <h4 class="name text-responsive">{{DisplayName}}</h4>
+  </div>
+</mat-toolbar>
+<mat-sidenav-container>
+  <mat-sidenav #sidenav [mode]="opened === false ? 'over' : 'side'" [opened]="opened === true">
+    <mat-nav-list>
+      <div>
+        <mat-nav-list>
+        <mat-accordion>
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <!--mat-icon>info</mat-icon-->
+                Macroeconomics
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <mat-nav-list>
+              <div class="list" (click)="navigate('Markets','All','/markets/gdp')"> GDP </div>
+              <div class="list" (click)="navigate('Markets','All','/markets/price')"> Price and Consumers</div>
+              <div class="list" (click)="navigate('Markets','All','/markets/trade')"> Trade and Money </div>
+              <div class="list" (click)="navigate('Markets','All','/markets/social')"> Social (Demographics and Labour) </div>
+              <div class="list" (click)="navigate('Markets','All','/markets/hospitality')"> Hospitality and Tourism </div>
+              <div class="list" (click)="navigate('Markets','All','/markets/city')"> City Data </div>
+            </mat-nav-list>
+          </mat-expansion-panel>
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <!--mat-icon>contact_mail</mat-icon-->
+                Report Hub
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <mat-nav-list>
+              <div class="list" (click)="navigate('Reports','All','/reports/all')"> All </div>
+              <div class="list" (click)="navigate('Reports','External','/reports/external')"> External </div>
+              <div class="list" (click)="navigate('Reports','Internal','/reports/internal')"> Internal </div>
+              <div class="list" (click)="navigate('Reports','Favorites','/reports/favorites')"> Favorites </div>
+            </mat-nav-list>
+          </mat-expansion-panel>
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <!--mat-icon>home</mat-icon-->
+                Competitive Benchmarking
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <mat-nav-list>
+              <div class="list" (click)="navigate('Competitive','Retail','/competitive/retail')"> Retail </div>
+              <div class="list" (click)="navigate('Competitive','Shopping Malls','/competitive/smbu')"> Shopping Malls (SMBU) </div>
+            </mat-nav-list>
+          </mat-expansion-panel>
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <!--mat-icon>home</mat-icon-->
+                News
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <mat-nav-list>
+              <div class="list" (click)="navigate('news','All','/news/allnews')"> All News </div>
+              <div class="list" (click)="navigate('news','Favourites','/news/favourites')"> Favourites </div>
+            </mat-nav-list>
+          </mat-expansion-panel>
+        </mat-accordion>
+        </mat-nav-list>
+      </div>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content style="background-color: whitesmoke;">
+    <div style="margin: 20px 30px;">
+    <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

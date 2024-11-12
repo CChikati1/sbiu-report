@@ -1,0 +1,206 @@
+.maf_logo {
+  height: 35px;
+  width: auto;
+  margin-left: 10px;
+}
+
+.name {
+  margin-top: 8px;
+  font-weight: normal;
+}
+
+.head-menu {
+  flex: 1 1 auto;
+}
+
+.hidden {
+  display: none;
+}
+
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700");
+
+$color-primary-light: #7ed56f;
+$color-primary-dark: #28b485;
+$color-secondary-light: #FFB900;
+$color-secondary-dark: #FF7730;
+$color-tertiary-light: #2998FF;
+$color-tertiary-dark: #5643FA;
+
+*, *::after, *::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+}
+
+.content {
+  height: 100vh;
+  background: linear-gradient(to bottom right, aqua, lightblue);
+  text-align: center;
+  padding: 4em 0;
+}
+
+.cards {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.card {
+  width: 25%;
+  position: relative;
+  height: 25em;
+  perspective: 150em;
+  
+  &__side {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 25em;
+    backface-visibility: hidden;
+    transition: all .6s ease;
+    box-shadow: 1em 1em 2em rgba(0,0,0,.2);
+    
+    &--front {
+      background-color: #FFF; 
+    }
+    
+    &--back {
+      color: #FFF;
+      transform: rotateY(180deg);
+      
+      &-1 {
+        background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark);;        
+      }
+      
+      &-2 {
+        background-image: linear-gradient(to right bottom, $color-tertiary-light, $color-tertiary-dark);
+      }
+      
+      &-3 {
+        background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark);
+      }
+    }
+  }
+  
+  &:hover &__side--front {
+    transform: rotateY(-180deg);
+  }
+  
+  &:hover &__side--back {
+    transform: rotate(0);
+  }
+  
+  &__description {
+    text-transform: uppercase;
+    font-size: 5em;
+    padding: 1em 0;
+    
+    svg {
+      width: 1.5em;
+      height: 1.5em;
+      fill: #FFF;
+    }
+  }
+}
+
+/* styles.css 
+.card-container {
+    display: grid;
+    margin: 30px;
+    justify-content: center;
+    align-content: center;
+    gap: 20px;
+    //grid-auto-flow: column;
+}*/
+
+
+@media screen and (min-width: 1240px) {
+  .card-container {
+    display: grid;
+    margin: 30px;
+    justify-content: center;
+    align-content: center;
+    gap: 20px;
+    grid-auto-flow: column;
+  }
+}
+
+@media screen and (max-width: 1240px) {
+  .card-container {
+    display: grid;
+    margin: 30px auto;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+  }
+}
+
+  .card-wrap {
+    background-color: #ffffff;
+  }
+  .card-wrap .con-img-wrap {
+    position: relative;
+    border-radius: 50px;
+    overflow: hidden;
+  }
+  .card-wrap .con-img-wrap img {
+    transition: all 0.2s ease;
+  }
+  .card-wrap .con-img-wrap img:hover {
+    transform: scale(1.1);
+  }
+  .card-wrap .con-img-wrap .offer-tag {
+    background-color: #8a1538 !important;
+    color: white !important;
+    border-radius: 0 0 50% 50%;
+    width: 50px;
+    height: 45px;
+    display: block;
+    position: absolute;
+    left: 50px;
+    top: 0px;
+    text-align: center;
+    line-height: normal;
+    font-size: 0.8rem;
+  }
+
+  .card-wrap .con-img-wrap .heading {
+    color: white !important;
+    border-radius: 0 0 50% 50%;
+    display: block;
+    position: absolute;
+    left: 20px;
+    top: 180px;
+    line-height: normal;
+  }
+
+  .card-wrap .con-img-wrap .text {
+    color: white !important;
+    border-radius: 0 0 50% 50%;
+    display: block;
+    position: absolute;
+    left: 20px;
+    padding-right: 20px;
+    top: 300px;
+    line-height: normal;
+  }
+  .card-wrap .con-img-wrap .wishlist-tag:hover {
+    background: #0393D2;
+    color: #ffffff;
+  }
+  .card-wrap .con-wrap .rating-cover {
+    color: #9F9F9F;
+  }
+  .card-wrap .con-wrap .rating-cover i {
+    color: #ffc107;
+  }
+  .card-wrap .con-wrap .timing {
+    color: #9F9F9F;
+  }
+  .card-wrap .con-wrap .timing i {
+    color: #0393D2;
+  }
+  
