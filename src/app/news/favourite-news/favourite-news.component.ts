@@ -45,9 +45,10 @@ export class FavouriteNewsComponent  implements OnInit{
             const arrayRowFilter =
               text.PrimaryQueryResult.RelevantResults.Table.Rows;
             for (const item of arrayRowFilter) {
+              //console.log(item);
               const itemID: number = Number(item.Cells[0].Value);
               const arrayFilter = this.newsListAll.filter(
-                (report: { Id: number }) => report.Id === itemID
+                (report: { NewsID: number }) => report.NewsID === itemID
               );
               for (const item of arrayFilter) {
                 this.filterredList.push(item);

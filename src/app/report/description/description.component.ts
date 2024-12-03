@@ -35,13 +35,14 @@ export class DescriptionComponent implements OnInit {
       this.id = params['id'];
       this.getCurrentUser();
       this.apiservice.getDigestValue();
+      
       this.getReportDetails();
       this.getReportComments();
       this.getUsers();
     });
   }
 
-  getUsers(){
+  async getUsers(){
     this.apiservice.getUsers().subscribe((res) => {
       if (res != null && res !== '') {
         const data = res as any;
@@ -57,7 +58,7 @@ export class DescriptionComponent implements OnInit {
   });
   }
 
-  getReportDetails(){
+  async getReportDetails(){
     this.apiservice.getReportDetails(this.id).subscribe((res) => {
       if (res != null && res !== '') {
         const data = res as any;
@@ -70,7 +71,7 @@ export class DescriptionComponent implements OnInit {
   });
   }
   
-  getDownloadFile()  {
+  async getDownloadFile()  {
     this.isLoader = true;
     this.attachmentList = this.reportDetails.AttachmentFiles.results;
     this.apiservice.getDownloadFile(this.attachmentList[0].ServerRelativePath.DecodedUrl).subscribe(
@@ -79,7 +80,7 @@ export class DescriptionComponent implements OnInit {
   );
 }
 
-getViewFile()  {
+async getViewFile()  {
   this.attachmentList = this.reportDetails.AttachmentFiles.results;
   var url =   "https://majidalfuttaim.sharepoint.com/" + this.attachmentList[0].ServerRelativeUrl;
   window.open(url, "_blank");
