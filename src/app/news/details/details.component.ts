@@ -2,12 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiCallService } from 'src/app/api-call.service';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
-import { Location } from '@angular/common';
+import { Location,DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-details',
   templateUrl: './details.component.html',
-  styleUrls: ['./details.component.scss']
+  styleUrls: ['./details.component.scss'],
+  providers: [DatePipe]
 })
 
 export class DetailsComponent implements OnInit {
@@ -28,7 +29,7 @@ export class DetailsComponent implements OnInit {
   isLoader: boolean = false;
   favFlag: boolean = false;
 
-  constructor(private route: ActivatedRoute,private apiservice: ApiCallService,private sanitizer: DomSanitizer, private router: Router,private _location: Location) {}
+  constructor(private route: ActivatedRoute,private apiservice: ApiCallService,private sanitizer: DomSanitizer, private router: Router,private _location: Location,private datePipe: DatePipe) {}
 
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
@@ -62,6 +63,9 @@ export class DetailsComponent implements OnInit {
       if (res != null && res !== '') {
         const data = res as any;
         this.newsDetails = data.d.results[0];
+        this.newsDetails.FormattedDate =  this.convertDate(this.newsDetails.Date);
+      
+              
         this.descriptionHtmlContent = this.sanitizer.bypassSecurityTrustHtml(this.newsDetails.Paragraph);
        // this.keyinsightsHtmlContent = this.sanitizer.bypassSecurityTrustHtml(this.newsDetails.KeyInsights);
        // this.tagList = this.newsDetails.Tags.split(",");
@@ -70,6 +74,11 @@ export class DetailsComponent implements OnInit {
   });
   }
   
+  convertDate(dateString: string): string {
+    const [month, day, year] = dateString.split('/');
+    const date = new Date(+year, +month - 1, +day);
+    return this.datePipe.transform(date, 'fullDate') || '';
+  }
 submitComments(){
   this.isLoader = true;
   const result = this.extractWordsBetweenChars(this.textComments,"@",">");

@@ -17,7 +17,7 @@
     letter-spacing: -0.025em;
     font-size: 1rem;
     line-height: 1.5rem;
-    font-size: 1.25rem;
+    font-size: 1.0rem;
     line-height: 1.75rem;
     font-weight: 600;
     font-family: MarselisPro-Bold !important;
@@ -190,3 +190,21 @@
   .emailHighlight {
       color: #1669bb !important;
   }
+
+  .issue-heading h1 {
+    color: #940315;
+    margin-top: 0;
+    margin-bottom: 0
+}
+.issue-heading .date {
+    font-size: 1.0rem;
+    margin-bottom: 1rem
+}
+.description-text
+{
+    /* font-family: Merriweather,Noto Naskh Arabic,serif; */
+    font-size: 1.0rem;
+    line-height: 1.8;
+    color: #344152;
+    text-rendering: optimizelegibility!important
+}

@@ -43,7 +43,8 @@ import {MatInputModule} from '@angular/material/input';
 import { AllnewsComponent } from './news/allnews/allnews.component';
 import { DetailsComponent } from './news/details/details.component';
 import { FavouriteNewsComponent } from './news/favourite-news/favourite-news.component';
-
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 @NgModule({
   declarations: [
     AppComponent,
@@ -91,7 +92,9 @@ import { FavouriteNewsComponent } from './news/favourite-news/favourite-news.com
     ReactiveFormsModule,
     MatExpansionModule,
     MatMenuModule,
-    MatInputModule
+    MatInputModule,
+    MatDatepickerModule ,
+    MatNativeDateModule// Import the MatDatepickerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

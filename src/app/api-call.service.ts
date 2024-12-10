@@ -59,13 +59,13 @@ export class ApiCallService {
     return this.http.get(this.sp_URL + "_api/web/lists/getByTitle('Reports')/items?$select=*&$filter=(ID eq '"+ id +"')&$expand=AttachmentFiles", { headers: { Accept: 'application/json;odata=verbose' } })
   }
   getAllNewsListItem(){
-    return this.http.get(this.sp_URL + "_api/web/lists/getByTitle('News')/items?$select=Title,Heading,Paragraph,FileName,ID", { headers: { Accept: 'application/json;odata=verbose' } })
+    return this.http.get(this.sp_URL + "_api/web/lists/getByTitle('News')/items?$select=Title,Heading,Paragraph,FileName,ID,Image,Date,OpCo,Market", { headers: { Accept: 'application/json;odata=verbose' } })
   }
   getNewsDetails(id: number) {
     return this.http.get(this.sp_URL + "_api/web/lists/getByTitle('News')/items?$select=*&$filter=(ID eq '"+ id +"')", { headers: { Accept: 'application/json;odata=verbose' } })
   }
   getNewsAllFavorites(emailAddress: string){
-    return this.http.get(this.sp_URL + "_api/web/lists/getByTitle('FavNews')/items?$select=Title,Heading,Paragraph,ID,NewsID&$filter=(EmailAccount eq '"+emailAddress+"')", { headers: { Accept: 'application/json;odata=verbose' } })
+    return this.http.get(this.sp_URL + "_api/web/lists/getByTitle('FavNews')/items?$select=Title,Heading,Paragraph,ID,OpCo,ImageUrl,Market,Date,NewsID&$filter=(EmailAccount eq '"+emailAddress+"')", { headers: { Accept: 'application/json;odata=verbose' } })
   }
   getNewsFavorites(emailAddress: string, id: number){
     return this.http.get(this.sp_URL + "_api/web/lists/getByTitle('FavNews')/items?$select=Title,Heading,Paragraph,ID,NewsID&$filter=(EmailAccount eq '"+emailAddress+"') and (NewsID eq'"+ id +"')", { headers: { Accept: 'application/json;odata=verbose' } })
@@ -175,6 +175,10 @@ export class ApiCallService {
         'Heading': item.Heading,
         'Paragraph': item.Paragraph,
         'NewsID': item.ID,
+        'Date': item.Date,
+        'OpCo': item.OpCo,
+        'Market': item.Market,
+        'ImageUrl': item.Image,
         'EmailAccount': email.toLowerCase()
       };
   
