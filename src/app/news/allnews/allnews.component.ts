@@ -11,7 +11,7 @@ interface FilteredItem {
   FormattedDate: string,
   OpCo: string,
   Market:string,
-  Image:string
+  ImageUrl:string
 }
 
 @Component({
@@ -133,7 +133,7 @@ export class AllnewsComponent  implements OnInit{
     this.opcoData = {};
 
        // Get the top 10 latest records and add them as "Recent News"
-       const recentNews = this.newsListAll
+       const recentNews = this.filterredList
        .sort((a: FilteredItem, b: FilteredItem) => {
          return new Date(b.Date).getTime() - new Date(a.Date).getTime();
        })

@@ -59,7 +59,7 @@ export class ApiCallService {
     return this.http.get(this.sp_URL + "_api/web/lists/getByTitle('Reports')/items?$select=*&$filter=(ID eq '"+ id +"')&$expand=AttachmentFiles", { headers: { Accept: 'application/json;odata=verbose' } })
   }
   getAllNewsListItem(){
-    return this.http.get(this.sp_URL + "_api/web/lists/getByTitle('News')/items?$select=Title,Heading,Paragraph,FileName,ID,Image,Date,OpCo,Market", { headers: { Accept: 'application/json;odata=verbose' } })
+    return this.http.get(this.sp_URL + "_api/web/lists/getByTitle('News')/items?$select=Title,Heading,Paragraph,FileName,ID,ImageUrl,Date,OpCo,Market", { headers: { Accept: 'application/json;odata=verbose' } })
   }
   getNewsDetails(id: number) {
     return this.http.get(this.sp_URL + "_api/web/lists/getByTitle('News')/items?$select=*&$filter=(ID eq '"+ id +"')", { headers: { Accept: 'application/json;odata=verbose' } })
@@ -178,7 +178,7 @@ export class ApiCallService {
         'Date': item.Date,
         'OpCo': item.OpCo,
         'Market': item.Market,
-        'ImageUrl': item.Image,
+        'ImageUrl': item.ImageUrl,
         'EmailAccount': email.toLowerCase()
       };
   
