@@ -21,31 +21,29 @@
             </mat-expansion-panel-header>            
 <form [formGroup]="form">         
   <div class="row" style="font-size: 0.7rem;">
-    <div class="col-4">
+    <!-- <div class="col-4">
       <mat-form-field appearance="fill" class="example-full-width" >
         <mat-label>OpCo</mat-label>
         <mat-select matNativeControl class="small-font-dropdown" formControlName="opcoControl" [multiple]="true" >
           <mat-option *ngFor="let opco of opcos" [value]="opco">{{opco}}</mat-option>
         </mat-select>        
       </mat-form-field>
-    </div>  
+    </div>   -->
 
-  <!-- Market Dropdown --> 
+  <!-- Country Dropdown --> 
     <div class="col-4">
       <mat-form-field appearance="fill" class="example-full-width">
-        <mat-label>Market</mat-label>
+        <mat-label>Country</mat-label>
         <mat-select matNativeControl class="small-font-dropdown" formControlName="marketControl" [multiple]="true">
           <mat-option *ngFor="let market of markets" [value]="market">{{market}}</mat-option>
         </mat-select>        
       </mat-form-field>
     </div>
-
+ 
     <div class="col-4">
       <mat-form-field appearance="fill" class="example-full-width">
-        <mat-label>From</mat-label>
-        <input matInput [matDatepicker]="picker" formControlName="fromDate">
-        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-datepicker #picker></mat-datepicker>
+        <mat-label>Search</mat-label>
+        <input matInput [formControl]="queryText" (keydown.enter)="search()" placeholder="Ex. Inflation, Retail Report, Transparency Index" value="">
       </mat-form-field>
     </div>
   </div>        

@@ -63,12 +63,15 @@ export class DetailsComponent implements OnInit {
       if (res != null && res !== '') {
         const data = res as any;
         this.newsDetails = data.d.results[0];
-        this.newsDetails.FormattedDate =  this.convertDate(this.newsDetails.Date);
-      
-              
+        if (!this.newsDetails.Date || isNaN(new Date(this.newsDetails.Date).getTime())) {
+          // Set FormattedDate to empty if Date is invalid
+          this.newsDetails.FormattedDate = '';
+        } else {
+          // Otherwise, convert the valid Date
+          this.newsDetails.FormattedDate =  this.convertDate(this.newsDetails.Date);
+        }    
         this.descriptionHtmlContent = this.sanitizer.bypassSecurityTrustHtml(this.newsDetails.Paragraph);
-       // this.keyinsightsHtmlContent = this.sanitizer.bypassSecurityTrustHtml(this.newsDetails.KeyInsights);
-       // this.tagList = this.newsDetails.Tags.split(",");
+       
         this.getFavorites();
       }
   });
