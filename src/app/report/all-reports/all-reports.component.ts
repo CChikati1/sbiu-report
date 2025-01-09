@@ -2,12 +2,25 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ApiCallService } from 'src/app/api-call.service';
+interface Report {
+  Industry: any;
+  Title: string;
+  ShortDescriptio: string;
+  Authors: string;
+  PublicationDate: string;
+  ReportType: string;
+  ImageUrl?: string;
+  FormattedDate?: string;
+}
 
 @Component({
   selector: 'app-all-reports',
   templateUrl: './all-reports.component.html',
   styleUrls: ['./all-reports.component.scss'],
 })
+
+
+
 export class AllReportsComponent implements OnInit {
   loginUserName: string = 'Test@test.com';
   DisplayName: string = '';
@@ -19,6 +32,8 @@ export class AllReportsComponent implements OnInit {
   author = new FormControl('');
   industry = new FormControl('');
   queryText = new FormControl('');
+  reportData: { [key: string]: Report[] } = {};
+  reportKeys: string[] = [];
   marketList: string[] = [
     'UAE',
     'KSA',
@@ -119,7 +134,7 @@ export class AllReportsComponent implements OnInit {
       this.isLoader = false;
     }
     else{
-      if (this.queryText.value != null) {
+      if (this.queryText.value != null && this.queryText.value != '') {
         var query = this.queryText.value;
         this.apiservice.searchFreeText(query).subscribe((res) => {
           if (res != null && res !== '') {
@@ -144,6 +159,7 @@ export class AllReportsComponent implements OnInit {
         this.isLoader = false;
       }
     }
+    this.groupReportsByReportType();
   }
 
   filterRow() {
@@ -158,6 +174,7 @@ export class AllReportsComponent implements OnInit {
         for (const item of arrayFilter) {
           this.filterredList.push(item);
         }
+      //  this.groupReportsByReportType();
       });
     }
     
@@ -172,6 +189,7 @@ export class AllReportsComponent implements OnInit {
         for (const item of arrayFilter) {
           this.filterredList.push(item);
         }
+      //  this.groupReportsByReportType();
       });
     }
 
@@ -184,6 +202,7 @@ export class AllReportsComponent implements OnInit {
         for (const item of arrayFilter) {
           this.filterredList.push(item);
         }
+       // this.groupReportsByReportType();
       });
     }
 
@@ -196,6 +215,7 @@ export class AllReportsComponent implements OnInit {
         for (const item of arrayFilter) {
           this.filterredList.push(item);
         }
+       // this.groupReportsByReportType();
       });
     }
   }
@@ -208,6 +228,7 @@ export class AllReportsComponent implements OnInit {
     this.queryText = new FormControl('');
     this.filterredList = [];
     this.filterredList = this.reportListAll;
+    this.groupReportsByReportType();
   }
 
   constructor(private apiservice: ApiCallService, private router: Router) {}
@@ -224,9 +245,25 @@ export class AllReportsComponent implements OnInit {
         const data = res as any;
         this.reportListAll = data.d.results;
         this.filterredList = data.d.results;
+        this.groupReportsByReportType();
         this.isLoader = false;
       }
     });
+  }
+
+  groupReportsByReportType() {
+    this.reportData = {};
+    this.reportKeys = [];
+    this.reportData = this.filterredList.reduce((groups: { [x: string]: Report[]; }, report: Report) => {
+      const reportelm = report.ReportType; // Assuming "Industry" represents "report"
+      if (!groups[reportelm]) {
+        groups[reportelm] = [];
+      }
+      groups[reportelm].push(report);
+      return groups;
+    }, {} as { [key: string]: Report[] });
+  
+    this.reportKeys = Object.keys(this.reportData); // Get the list of report keys
   }
 
   async getCurrentUser() {

@@ -3,6 +3,17 @@ import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ApiCallService } from 'src/app/api-call.service';
 
+interface Report {
+  Industry: any;
+  Title: string;
+  ShortDescriptio: string;
+  Authors: string;
+  PublicationDate: string;
+  ReportType: string;
+  ImageUrl?: string;
+  FormattedDate?: string;
+}
+
 @Component({
   selector: 'app-favourite-reports',
   templateUrl: './favourite-reports.component.html',
@@ -19,6 +30,8 @@ export class FavouriteReportsComponent implements OnInit {
   author = new FormControl('');
   industry = new FormControl('');
   queryText = new FormControl('');
+  reportData: { [key: string]: Report[] } = {};
+  reportKeys: string[] = [];
   marketList: string[] = [
     'UAE','KSA','Global','Dubai','Riyadh','GCC','MENA','Egypt','Kuwait','Oman','Qatar','Bahrain','USA','Middle East','Europe'
   ];
@@ -50,7 +63,7 @@ export class FavouriteReportsComponent implements OnInit {
       this.isLoader = false;
     }
     else{
-      if (this.queryText.value != null) {
+      if (this.queryText.value != null && this.queryText.value != '') {
         var query = this.queryText.value;
         this.apiservice.searchFreeText(query).subscribe((res) => {
           if (res != null && res !== '') {
@@ -75,6 +88,7 @@ export class FavouriteReportsComponent implements OnInit {
         this.isLoader = false;
       }
     } 
+    this.groupReportsByReportType();
   }
 
   filterRow() {
@@ -120,6 +134,21 @@ export class FavouriteReportsComponent implements OnInit {
     }
   }
 
+  groupReportsByReportType() {
+    this.reportData = {};
+    this.reportKeys = [];
+    this.reportData = this.filterredList.reduce((groups: { [x: string]: Report[]; }, report: Report) => {
+      const reportelm = report.ReportType; // Assuming "Industry" represents "report"
+      if (!groups[reportelm]) {
+        groups[reportelm] = [];
+      }
+      groups[reportelm].push(report);
+      return groups;
+    }, {} as { [key: string]: Report[] });
+  
+    this.reportKeys = Object.keys(this.reportData); // Get the list of report keys
+  }
+
   reset(){
     this.market = new FormControl('');
     this.author = new FormControl('');
@@ -128,6 +157,7 @@ export class FavouriteReportsComponent implements OnInit {
     this.queryText = new FormControl('');
     this.filterredList = [];
     this.filterredList = this.reportListAll;
+    this.groupReportsByReportType();
   }
   constructor(private apiservice: ApiCallService, private router: Router) {}
 
@@ -143,6 +173,7 @@ export class FavouriteReportsComponent implements OnInit {
         this.reportListAll = data.d.results;
         this.filterredList = data.d.results;
         this.isLoader = false;
+        this.groupReportsByReportType();
       }
     });
   }

@@ -44,7 +44,7 @@ export class ApiCallService {
   }
 
   getAllFavourites(emailAddress: string){
-    return this.http.get(this.sp_URL + "_api/web/lists/getByTitle('FavReports')/items?$select=Title,ShortDescriptio,PublicationDate,ID,Authors,Industry,BusinessUnit,Market,ReportID&$orderby=PublicationDate desc&$filter=(EmailAccount eq '"+emailAddress+"')", { headers: { Accept: 'application/json;odata=verbose' } })
+    return this.http.get(this.sp_URL + "_api/web/lists/getByTitle('FavReports')/items?$select=Title,ShortDescriptio,PublicationDate,ID,Authors,Industry,BusinessUnit,Market,ReportID,ReportType&$orderby=PublicationDate desc&$filter=(EmailAccount eq '"+emailAddress+"')", { headers: { Accept: 'application/json;odata=verbose' } })
   }
 
   getFavorites(emailAddress: string, id: number){
@@ -52,7 +52,7 @@ export class ApiCallService {
   }
 
   getAllReportsListItem(){
-    return this.http.get(this.sp_URL + "_api/web/lists/getByTitle('Reports')/items?$select=Title,ShortDescriptio,PublicationDate,ID,Authors,Industry,BusinessUnit,Market&$orderby=PublicationDate desc", { headers: { Accept: 'application/json;odata=verbose' } })
+    return this.http.get(this.sp_URL + "_api/web/lists/getByTitle('Reports')/items?$select=Title,ShortDescriptio,PublicationDate,ID,Authors,Industry,BusinessUnit,Market,ReportType&$orderby=PublicationDate desc", { headers: { Accept: 'application/json;odata=verbose' } })
   }
 
   getReportDetails(id: number) {
@@ -154,6 +154,7 @@ export class ApiCallService {
         'Industry':item.Industry,
         'Market':item.Market,
         'BusinessUnit':item.BusinessUnit,
+        'ReportType':item.ReportType,
         'EmailAccount': email.toLowerCase()
       };
   

@@ -5,6 +5,10 @@
         <div class="col-12">&nbsp;</div>
     </div>
     <div class="row">
+        <div class="col-12">&nbsp;</div>
+    </div>
+  
+       <div class="row">
         <div class="col-12">
             <button type="button" class="back-button" (click)="goBack()">
                 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 768 768" class="back-button-icon">
@@ -18,76 +22,70 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-12">&nbsp;</div>
-    </div>
-    <div class="row" >
+        <!-- Image Column -->
         <div class="col-12 col-sm-12 col-md-4">
-            <div class="detail-report-card">
-                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"
-                    class="transition-opacity opacity-30 absolute left-6 top-6 text-white">
-                    <path
-                        d="M14.957 2.00584C6.73632 2 1 7.4575 1 14.6965V29.0136H5.77133V14.6869C5.77133 7.95383 10.9571 3.15085 16.1568 2.11041C16.3712 2.06582 16.62 2 16.3712 2L14.957 2.00584Z"
-                        fill="currentColor"></path>
-                    <path
-                        d="M13.9119 3.71842C14.5603 3.30533 15.2587 2.97513 15.9905 2.73565C16.8323 2.4306 17.7213 2.27353 18.6175 2.27149C19.1 2.27877 19.5816 2.31655 20.0592 2.38462C20.379 2.42955 20.7521 2.50092 20.9828 2.55167C27.2953 4.00389 31 8.88286 31 14.9666V29.0136H26.2635V14.6008C26.2454 10.4128 23.0502 6.94481 18.8552 6.26602C18.3507 6.17545 17.8382 6.1356 17.3256 6.14707C15.7203 6.17984 14.2541 6.73652 13.2825 7.8615C15.0349 7.171 16.9822 7.14456 18.753 7.78721C20.5238 8.42987 21.9941 9.69664 22.8834 11.3459C23.469 12.4361 23.7748 13.6526 23.774 14.8879V29.0078H19.0343V14.8863C19.0349 14.4629 18.9407 14.0447 18.7587 13.6618C18.5767 13.2788 18.3113 12.9407 17.9817 12.6717L16.1163 14.8863L14.2456 12.6717C13.9165 12.9411 13.6518 13.2793 13.4702 13.6622C13.2887 14.0451 13.1949 14.4632 13.1956 14.8863V29.0078H8.46606V14.7139C8.46606 14.6008 8.46979 14.4882 8.47352 14.3761L8.47357 14.3745C8.47728 14.2625 8.48098 14.1509 8.48098 14.0383C8.63501 10.0612 10.2675 5.95358 13.9119 3.71842Z"
-                        fill="currentColor"></path>
-                </svg>
-                <div class="detail-card-heading-text">{{reportDetails.Title}}</div>
-            </div>
+            <img [src]="reportDetails.ImageUrl || 'https://enterprise.press/wp-content/uploads/2021/06/crystal-ball-1600px-1140x574.jpg'"
+                alt="Report Image" width="100%" height="100%" />
         </div>
+    
+        <!-- Content Column -->
         <div class="col-12 col-sm-12 col-md-8">
-            <h2 class="report-title-heading">
-                {{reportDetails.Title}}</h2>
-            <div style="padding-top:1.5rem">
-                <div class="row">
-                    <div class="col-12 col-sm-12 col-md-3">
-                        <div class="detail-div">
-                            <span class="detail-heading">Author</span>
-                            <span class="detail-text">{{reportDetails.Authors}}</span>
-                        </div>
+            <div class="col-12">
+                <div style="padding-top: 1.5rem" class="d-flex flex-wrap justify-content-between">
+                    <!-- Author Section -->
+                    <div class="detail-div">
+                        <span class="detail-heading">Author</span>
+                        <span class="detail-text">{{ reportDetails.Authors }}</span>
                     </div>
-                    <div class="col-12 col-sm-12 col-md-3">
-                        <div class="detail-div"><span class="detail-heading">
-                                published</span><span class="font-semibold">{{reportDetails.PublicationDate |
-                                date:'MMM
-                                dd, yyyy'}}</span></div>
+    
+                    <!-- Published Section -->
+                    <div class="detail-div">
+                        <span class="detail-heading">Published</span>
+                        <span class="font-semibold">{{ reportDetails.PublicationDate | date:'MMM dd, yyyy' }}</span>
                     </div>
-                    <div class="col-12 col-sm-12 col-md-3">
-                        <div class="detail-div">
-                            <span class="detail-heading">Industry</span><span
-                                class="font-semibold">{{reportDetails.Industry}}</span>
-                        </div>
+    
+                    <!-- Industry Section -->
+                    <div class="detail-div">
+                        <span class="detail-heading">Industry</span>
+                        <span class="font-semibold">{{ reportDetails.Industry }}</span>
+                    </div>
+                    <div *ngIf="reportDetails.BusinessUnit" class="detail-div">
+                        <span class="detail-heading">Business</span>
+                        <span class="font-semibold" *ngFor="let item of reportDetails.BusinessUnit.results">{{ item }}</span>
+                    </div>
+                    <div *ngIf="reportDetails.Market" class="detail-div">
+                        <span class="detail-heading">Market</span>
+                        <span class="font-semibold" *ngFor="let item of reportDetails.Market.results">{{ item }}</span>
                     </div>
                 </div>
-            </div>
-            <div style="padding-top:2rem">
-                <div class="row" *ngIf="reportDetails.BusinessUnit">
-                    <div class="col-12 col-sm-12 col-md-3">
-                        <div class="detail-div">
-                            <span class="detail-heading">Business</span>
-                            <span class="font-semibold" *ngFor="let item of reportDetails.BusinessUnit.results">{{item}}</span>
-                        </div>
-                    </div>
-                    <div class="col-12 col-sm-12 col-md-3">
-                        <div class="detail-div">
-                            <span class="detail-heading">Market</span><span class="font-semibold"
-                                *ngFor="let item of reportDetails.Market.results">{{item}}</span>
-                        </div>
-                    </div>
-                    <div *ngIf= "reportDetails.Attachments"  class="col-12 col-sm-4 col-md-2" style="text-align: left;">
+    
+                <!-- Icons Section in the Next Line -->
+                <div class="d-flex flex-wrap justify-content-start" style="padding-top: 1.5rem;">
+                    <!-- Download Icon -->
+                    <div *ngIf="reportDetails.Attachments" class="detail-div" style="text-align: left;">
                         <mat-icon matTooltip="Download this report" class="download-icon" (click)="getDownloadFile()">cloud_download</mat-icon>
                     </div>
-                    <div *ngIf= "reportDetails.Attachments"  class="col-12 col-sm-4 col-md-2"  style="text-align: left;">
+    
+                    <!-- View Icon -->
+                    <div *ngIf="reportDetails.Attachments" class="detail-div" style="text-align: left;">
                         <mat-icon class="download-icon" (click)="getViewFile()">remove_red_eye</mat-icon>
                     </div>
-                    <div class="col-12 col-sm-4 col-md-2"  style="text-align: left;">
+    
+                    <!-- Favorites Icon -->
+                    <div class="detail-div" style="text-align: left;">
                         <mat-icon (click)="addFavorites()" *ngIf="favFlag" class="heart-icon">favorite_border</mat-icon>
-                        <mat-icon  *ngIf="!favFlag" class="heart-icon">favorite</mat-icon>
+                        <mat-icon *ngIf="!favFlag" class="heart-icon">favorite</mat-icon>
                     </div>
-                    <div class="col-12 col-sm-4 col-md-1"  style="text-align: center;">&nbsp;</div>
                 </div>
             </div>
         </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-12">&nbsp;</div>
+    </div>
+    <div class="row">
+      
         <div class="row">
             <div class="col-12">&nbsp;</div>
         </div>

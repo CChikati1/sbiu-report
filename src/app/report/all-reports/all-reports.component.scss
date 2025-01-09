@@ -85,3 +85,157 @@ mat-form-field {
     align-items: center;
     margin: 10px 10px;
 }
+/* Main container for most-watched section */
+/* Main container for most-watched section */
+.most-watched {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  
+  /* Grid layout for OpCo sections (two columns) */
+  .most-watched-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columns per row */
+    gap: 10px; /* Space between columns and rows */
+  }
+  
+ /* Container to display opco keys in two columns */
+.opco-columns {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columns per row */
+    gap: 20px; /* Space between columns */
+    padding: 10px;
+  }
+  
+  /* Each OpCo column style */
+  .opco-column {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 15px;
+    background-color: #ffffff;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s, box-shadow 0.3s;
+    height: 600px;
+  }
+  
+  /* OpCo column hover effect */
+  .opco-column:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Section Heading for each OpCo */
+  .opco-title {
+    font-size: 1.0rem;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: rgb(195, 172, 123); /* Vibrant background */
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+  }
+  
+  /* Tile container within each OpCo */
+  .tile-container {
+    max-height: 500px; /* Max height for scrollable container */
+    overflow-y: auto;  /* Enable scrolling if items exceed max height */
+  }
+  
+  /* Tile style */
+  .tile {
+    margin-bottom: 15px;
+    cursor: pointer; /* Indicate clickability */
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+    border-radius: 8px; /* Rounded corners for tile */
+    padding: 10px; /* Add some padding inside tiles */
+    background-color: #fff; /* Set background color */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+  }
+  
+  .tile:hover {
+    transform: translateY(-3px); /* Hover effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: rgb(247, 245, 244); /* Background color change on hover */
+  }
+  
+  /* Tile header containing title, date, and image */
+  .tile-header {
+    display: grid;
+    grid-template-columns: 1fr auto; /* Two columns: one for text (Title + Date), other for image */
+    gap: 10px; /* Space between columns */
+    align-items: center; /* Align items vertically */
+  }
+  
+  /* Title and Date section in the first column */
+  .tile-heading-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  
+  .tile-title {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: #555;
+    flex: 1;
+    margin-bottom: 5px;
+  }
+  
+  .tile-date {
+    font-size: 0.6rem;
+    color: #777;
+  }
+  
+  /* Image section in the second column */
+  .tile-image-column {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .tile-image-holder {
+    width: 70px;  /* Reduced width */
+    height: 50px; /* Reduced height */
+    background-size: cover;
+    background-position: center;
+    border-radius: 5px;
+    flex-shrink: 0;
+  }
+  
+  /* Footer containing description */
+  .tile-footer {
+    margin-top: 10px;
+  }
+  
+  /* Description inside the tile */
+  .tile-description {
+    font-size: 0.6rem;
+    color: #555;
+    margin-bottom: 5px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  
+  /* Scrollbar style for the tile container */
+  .tile-container::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .tile-container::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 4px;
+  }
+  
+  .tile-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  
+  .opco-title:hover {
+    transform: translateY(-5px); /* Subtle lift on hover */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2); /* More pronounced shadow on hover */
+
+  } 
