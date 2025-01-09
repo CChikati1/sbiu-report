@@ -20,16 +20,48 @@
             <mat-expansion-panel-header>
               <mat-panel-title>
                 <!--mat-icon>info</mat-icon-->
-                Macroeconomics
+                Market Dashboards
               </mat-panel-title>
             </mat-expansion-panel-header>
             <mat-nav-list>
               <div class="list" (click)="navigate('Markets','All','/markets/gdp')"> GDP </div>
               <div class="list" (click)="navigate('Markets','All','/markets/price')"> Price and Consumers</div>
+              <div class="list" (click)="navigate('Markets','All','/markets/consumerspending')"> Consumer Spending </div>
               <div class="list" (click)="navigate('Markets','All','/markets/trade')"> Trade and Money </div>
               <div class="list" (click)="navigate('Markets','All','/markets/social')"> Social (Demographics and Labour) </div>
               <div class="list" (click)="navigate('Markets','All','/markets/hospitality')"> Hospitality and Tourism </div>
               <div class="list" (click)="navigate('Markets','All','/markets/city')"> City Data </div>
+              <!-- <div class="list" (click)="navigate('Markets','All','/markets/city')"> Market Dashboard  </div> -->
+              <div class="list" (click)="navigate('Markets','All','/markets/exchangerates')"> Exchange rates  </div>
+              <!-- <div class="list" (click)="navigate('Markets','All','/markets/CompBenchmarking')"> Comp Benchmarking  </div> -->
+            </mat-nav-list>
+          </mat-expansion-panel>
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <!--mat-icon>info</mat-icon-->
+                Sector Dashboards
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <mat-nav-list>
+              <!-- <div class="list" (click)="navigate('Markets','All','/markets/gdp')"> GDP </div>
+              <div class="list" (click)="navigate('Markets','All','/markets/price')"> Price and Consumers</div>
+              <div class="list" (click)="navigate('Markets','All','/markets/consumerspending')"> Consumer Spending </div>
+              <div class="list" (click)="navigate('Markets','All','/markets/trade')"> Trade and Money </div> -->
+             </mat-nav-list>
+          </mat-expansion-panel>
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <!--mat-icon>home</mat-icon-->
+                Competitive Benchmarking
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <mat-nav-list>
+              <div class="list" (click)="navigate('Competitive','Retail','/competitive/retail')"> Retail </div>
+              <div class="list" (click)="navigate('Competitive','Shopping Malls','/competitive/smbu')"> Shopping Malls (SMBU) </div>
+              <div class="list" (click)="navigate('Competitive','LifeStyle','/competitive/lifestyle')"> Lifestyle </div>
+              <div class="list" (click)="navigate('Competitive','Cinemas','/competitive/cinemas')"> Cinemas </div>
             </mat-nav-list>
           </mat-expansion-panel>
           <mat-expansion-panel>
@@ -46,23 +78,12 @@
               <div class="list" (click)="navigate('Reports','Favorites','/reports/favorites')"> Favorites </div>
             </mat-nav-list>
           </mat-expansion-panel>
+         
           <mat-expansion-panel>
             <mat-expansion-panel-header>
               <mat-panel-title>
                 <!--mat-icon>home</mat-icon-->
-                Competitive Benchmarking
-              </mat-panel-title>
-            </mat-expansion-panel-header>
-            <mat-nav-list>
-              <div class="list" (click)="navigate('Competitive','Retail','/competitive/retail')"> Retail </div>
-              <div class="list" (click)="navigate('Competitive','Shopping Malls','/competitive/smbu')"> Shopping Malls (SMBU) </div>
-            </mat-nav-list>
-          </mat-expansion-panel>
-          <mat-expansion-panel>
-            <mat-expansion-panel-header>
-              <mat-panel-title>
-                <!--mat-icon>home</mat-icon-->
-                News
+                News Hub
               </mat-panel-title>
             </mat-expansion-panel-header>
             <mat-nav-list>

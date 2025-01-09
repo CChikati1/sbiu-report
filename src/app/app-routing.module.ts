@@ -19,6 +19,10 @@ import { CityComponent } from './market/city/city.component';
 import { AllnewsComponent } from './news/allnews/allnews.component';
 import { DetailsComponent } from './news/details/details.component';
 import { FavouriteNewsComponent } from './news/favourite-news/favourite-news.component';
+import { ExchangeRatesComponent } from './market/exchangerates/exchangerates.component';
+import { ConsumerSpendingComponent } from './market/consumerspending/consumerspending.component';
+import { CinemasComponent } from './competitive/cinemas/cinemas.component';
+import { LifestyleComponent } from './competitive/lifestyle/lifestyle.component';
 const routes: Routes = [
   {
     path: '',
@@ -48,7 +52,9 @@ const routes: Routes = [
     children: [
       {path: '', component: RetailReportComponent},
       {path: 'retail', component: RetailReportComponent},
-      {path: 'smbu', component: ShoppingMallsReportComponent}
+      {path: 'smbu', component: ShoppingMallsReportComponent},
+      {path: 'cinemas', component: CinemasComponent},
+      {path: 'lifestyle', component: LifestyleComponent}
     ]
   },
   {
@@ -62,6 +68,8 @@ const routes: Routes = [
       { path: 'social', component: SocialComponent },
       { path: 'trade', component: TradeMoneyComponent},
       { path: 'city', component: CityComponent},
+      { path: 'exchangerates', component: ExchangeRatesComponent},
+      { path: 'consumerspending', component: ConsumerSpendingComponent},
       { path: 'others', component: OthersComponent}
     ]
   },
@@ -74,7 +82,19 @@ const routes: Routes = [
       { path: 'details' , component: DetailsComponent},
       { path: 'favourites', component: FavouriteNewsComponent },
     ]
-  }
+  },
+  {
+    path: 'sector',
+    component: DefaultLayoutComponent,
+    children: [
+      { path: '', component: HomeComponent },
+      // { path: 'all', component: AllReportsComponent},
+      // { path: 'external', component: ExternalReportsComponent },
+      // { path: 'internal', component: InternalReportsComponent },
+      // { path: 'favorites', component: FavouriteReportsComponent },
+      // { path: 'detail-page', component: DescriptionComponent }
+    ],
+  },
   
 ];
 
