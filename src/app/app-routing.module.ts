@@ -23,6 +23,7 @@ import { ExchangeRatesComponent } from './market/exchangerates/exchangerates.com
 import { ConsumerSpendingComponent } from './market/consumerspending/consumerspending.component';
 import { CinemasComponent } from './competitive/cinemas/cinemas.component';
 import { LifestyleComponent } from './competitive/lifestyle/lifestyle.component';
+import { DocumentQaComponent } from './report/document-qa/document-qa.component';
 const routes: Routes = [
   {
     path: '',
@@ -43,7 +44,8 @@ const routes: Routes = [
       { path: 'external', component: ExternalReportsComponent },
       { path: 'internal', component: InternalReportsComponent },
       { path: 'favorites', component: FavouriteReportsComponent },
-      { path: 'detail-page', component: DescriptionComponent }
+      { path: 'detail-page', component: DescriptionComponent },
+      { path: 'qa', component: DocumentQaComponent }
     ],
   },
   {
