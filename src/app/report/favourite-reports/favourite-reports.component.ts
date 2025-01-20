@@ -138,7 +138,7 @@ export class FavouriteReportsComponent implements OnInit {
     this.reportData = {};
     this.reportKeys = [];
     this.reportData = this.filterredList.reduce((groups: { [x: string]: Report[]; }, report: Report) => {
-      const reportelm = report.ReportType; // Assuming "Industry" represents "report"
+      const reportelm = report.Industry; // Assuming "Industry" represents "report"
       if (!groups[reportelm]) {
         groups[reportelm] = [];
       }

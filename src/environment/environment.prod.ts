@@ -1,5 +1,5 @@
 export const environment = {
-    production: false,  
+    production: true,  
     // sp_URL: 'https://majidalfuttaim.sharepoint.com/sites/SBIU/'
     //sp_URL:'https://majidalfuttaim.sharepoint.com/sites/SBIU/'
     sp_URL: 'https://majidalfuttaim.sharepoint.com/sites/SIBUReport/'
