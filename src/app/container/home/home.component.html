@@ -1,6 +1,6 @@
 <mat-toolbar color="primary">
     <img [ngClass]="{ 'hidden': opened ? false : true }"
-        src="https://majidalfuttaim.sharepoint.com/sites/SIBUReport/Report/assets/images/MAFLogo.png" class="maf_logo" />
+        src="https://majidalfuttaim.sharepoint.com/sites/SBIU/Report/assets/images/MAFLogo.png" class="maf_logo" />
     <span>
     </span>
     <span class="head-menu"></span>
@@ -21,15 +21,25 @@
         <div class="card-container">
             <div class="card-wrap">
                 <div class="con-img-wrap m-auto" (click)="navigate('/markets/gdp')">
-                    <img src="https://majidalfuttaim.sharepoint.com/sites/SIBUReport/Report/assets/images/landing-page-1.png"
+                    <img src="https://majidalfuttaim.sharepoint.com/sites/SBIU/Report/assets/images/landing-page-1.png"
                         class="img-fluid mx-auto d-block" alt="product picture">
-                    <h2 class="heading">Macroeconomics</h2>
+                    <h3 class="heading">Macroeconomics</h3>
                     <p class="text">A suite of macroeconomic dashboards for our key markets</p>
                 </div>
             </div>
             <div class="card-wrap">
+                <div class="con-img-wrap m-auto" (click)="navigate('/sector')">
+                    <img src="https://majidalfuttaim.sharepoint.com/sites/SBIU/Report/assets/images/landing-page-1.png"
+                        class="img-fluid mx-auto d-block" alt="product picture">
+                        <div class="offer-tag bg-warning">COMING SOON</div>
+                    <h3 class="heading">Sector Dashboards</h3>
+                    <p class="text">A deep dive into the sectors MAF Operates in</p>
+                </div>
+            </div>
+            
+            <div class="card-wrap">
                 <div class="con-img-wrap m-auto" (click)="navigate('/reports/all')">
-                    <img src="https://majidalfuttaim.sharepoint.com/sites/SIBUReport/Report/assets/images/landing-page-2.png"
+                    <img src="https://majidalfuttaim.sharepoint.com/sites/SBIU/Report/assets/images/landing-page-2.png"
                         class="img-fluid mx-auto d-block" alt="product picture">
                     <h2 class="heading">Reports Hub</h2>
                     <p class="text">A centralized repository for all reports</p>
@@ -37,25 +47,25 @@
             </div>
             <div class="card-wrap">
                 <div class="con-img-wrap m-auto" (click)="navigate('/competitive/retail')">
-                    <img src="https://majidalfuttaim.sharepoint.com/sites/SIBUReport/Report/assets/images/landing-page-3.png"
+                    <img src="https://majidalfuttaim.sharepoint.com/sites/SBIU/Report/assets/images/landing-page-3.png"
                         class="img-fluid mx-auto d-block" alt="product picture">
                     <h2 class="heading">Competitive Benchmarking</h2>
                     <p class="text">Benchmarking MAF performance against global and regional peers</p>
                 </div>
             </div>
-            <div class="card-wrap">
+            <div class="card-wrap" style="padding-right: 5px !important;">
                         <div class="con-img-wrap m-auto" (click)="navigate('/news/allnews')">
-                            <img src="https://majidalfuttaim.sharepoint.com/sites/SIBUReport/Report/assets/images/landing-page-4.png"
+                            <img src="https://majidalfuttaim.sharepoint.com/sites/SBIU/Report/assets/images/landing-page-4.png"
                                 class="img-fluid mx-auto d-block" alt="product picture">
-                            <div class="offer-tag bg-warning">COMING SOON</div>
-                            <h2 class="heading">News Aggregator</h2>
+                            <!-- <div class="offer-tag bg-warning">COMING SOON</div> -->
+                            <h2 class="heading">News Hub</h2>
                             <p class="text">An intuitive approach to bringing all the
                                 relevant news related to Majid Al Futtaim</p>
                         </div>
                     </div>
                     <!--<div class="card-wrap">
                         <div class="con-img-wrap m-auto">
-                            <img src="https://majidalfuttaim.sharepoint.com/sites/SIBUReport/Report/assets/images/landing-page-5.png"
+                            <img src="https://majidalfuttaim.sharepoint.com/sites/SBIU/Report/assets/images/landing-page-5.png"
                                 class="img-fluid mx-auto d-block" alt="product picture">
                             <div class="offer-tag bg-warning">COMING SOON</div>
                             <h2 class="heading">BIDS</h2>

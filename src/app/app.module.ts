@@ -45,6 +45,7 @@ import { DetailsComponent } from './news/details/details.component';
 import { FavouriteNewsComponent } from './news/favourite-news/favourite-news.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { SectordashboardComponent } from './sectordashboard/sectordashboard.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -67,7 +68,8 @@ import { MatNativeDateModule } from '@angular/material/core';
     CityComponent,
     AllnewsComponent,
     DetailsComponent,
-    FavouriteNewsComponent
+    FavouriteNewsComponent,
+    SectordashboardComponent
   ],
   imports: [
     BrowserModule,

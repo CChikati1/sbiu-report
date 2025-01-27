@@ -102,7 +102,7 @@ export class ApiCallService {
   }
 
   addComments(id: number, userEmailsToMention: any , comments: string,page:string) {
-    let visitlink= (page == 'Reports')?"Visit https://majidalfuttaim.sharepoint.com/sites/SIBUReport/Report/index.aspx/detail-page?id="+ id:"Visit https://majidalfuttaim.sharepoint.com/sites/SIBUReport/News/index.aspx/detail-page?id="+ id;
+    let visitlink= (page == 'Reports')?"Visit https://majidalfuttaim.sharepoint.com/sites/SBIU/Report/index.aspx/detail-page?id="+ id:"Visit https://majidalfuttaim.sharepoint.com/sites/SBIU/News/index.aspx/detail-page?id="+ id;
     comments = comments + visitlink ;
     var commentProperties = {
       "__metadata": {
@@ -134,10 +134,10 @@ export class ApiCallService {
   }
 
   searchFreeText(queryText: string){
-    return this.http.get(this.sp_URL + "_api/search/query?querytext='"+  queryText +" Path:https://majidalfuttaim.sharepoint.com/sites/SIBUReport/Lists/Reports'&selectproperties='ListItemID'", { headers: { Accept: 'application/json;odata=nometadata' } });
+    return this.http.get(this.sp_URL + "_api/search/query?querytext='"+  queryText +" Path:https://majidalfuttaim.sharepoint.com/sites/SBIU/Lists/Reports'&selectproperties='ListItemID'", { headers: { Accept: 'application/json;odata=nometadata' } });
   }
   searchNewsFreeText(queryText: string){
-    return this.http.get(this.sp_URL + "_api/search/query?querytext='"+  queryText +" Path:https://majidalfuttaim.sharepoint.com/sites/SIBUReport/Lists/News'&selectproperties='ListItemID'", { headers: { Accept: 'application/json;odata=nometadata' } });
+    return this.http.get(this.sp_URL + "_api/search/query?querytext='"+  queryText +" Path:https://majidalfuttaim.sharepoint.com/sites/SBIU/Lists/News'&selectproperties='ListItemID'", { headers: { Accept: 'application/json;odata=nometadata' } });
   }
 
   addFavorites(item: any, email: string,page:string){

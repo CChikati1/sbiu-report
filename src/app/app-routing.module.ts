@@ -24,6 +24,7 @@ import { ConsumerSpendingComponent } from './market/consumerspending/consumerspe
 import { CinemasComponent } from './competitive/cinemas/cinemas.component';
 import { LifestyleComponent } from './competitive/lifestyle/lifestyle.component';
 import { DocumentQaComponent } from './report/document-qa/document-qa.component';
+import { SectordashboardComponent } from './sectordashboard/sectordashboard.component';
 const routes: Routes = [
   {
     path: '',
@@ -89,7 +90,7 @@ const routes: Routes = [
     path: 'sector',
     component: DefaultLayoutComponent,
     children: [
-      { path: '', component: HomeComponent },
+      { path: '', component: SectordashboardComponent },
       // { path: 'all', component: AllReportsComponent},
       // { path: 'external', component: ExternalReportsComponent },
       // { path: 'internal', component: InternalReportsComponent },
